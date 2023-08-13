@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Router } from 'react-router-dom';
 import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
 import Header from './components/Header';
@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import CampsitesDirectoryPage from './pages/CampsitesDirectoryPage';
 import CampsiteDetailPage from './pages/CampsiteDetailPage';
 import './App.css';
-
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
           element={<CampsiteDetailPage />}
 
         />
+        <Route path='about' element={<AboutPage />} />
       </Routes>
       <Footer />
     </div>
