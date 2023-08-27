@@ -10,7 +10,7 @@ export const validateContactForm = (values) => {
     }
 
     if (!values.lastName) {
-        errors.lastNameName = 'Required';
+        errors.lastName = 'Required';
     } else if (values.lastName.length < 2) {
         errors.lastName = 'Must be at least 2 characters';
     } else if (values.lastName.length > 15) {
