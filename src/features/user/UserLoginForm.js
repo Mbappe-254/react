@@ -29,7 +29,7 @@ const UserLoginForm = () => {
 
         };
         dispatch(setCurrentUser(currentUser));
-        setLoginModalOpen = loginModalOpen(false);
+        loginModalOpen =  setLoginModalOpen (false);
     }
     return (
         <>
