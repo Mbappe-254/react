@@ -1,13 +1,36 @@
 import { useSelector } from 'react-redux';
-import { Col } from 'reactstrap';
+import { Col,Row } from 'reactstrap';
 import Comment from './Comment';
 import CommentForm from './CommentForm';
 import { selectCommmentsByCampsiteId } from './commentsSlice'
+import Error from '../../components/Error';
+import Loading from '../../components/Loading';
 
 const CommentsList = ({ campsiteId }) => {
 
     const comments = useSelector(selectCommmentsByCampsiteId(campsiteId));
-
+    
+    const isLoading  = useSelector((state) => state.comments.isLoading);
+    const errMsg  = useSelector((state) => state.comments.errMsg);
+  
+  
+  if (isLoading) {
+  
+    return(
+      <Row>
+        <Loading/>
+      </Row>
+    );
+  }
+  
+  if (errMsg) {
+  
+    return(
+      <Row>
+        <Error errMsg={errMsg}/>
+      </Row>
+    );
+  }
     if (comments && comments.length > 0) {
         return (
             <Col md='5' className='m-1'>
